@@ -1,0 +1,11 @@
+dirs:
+- title: operating_system_concept
+  url: ./_posts/operating_system_concept
+- title: test1
+  url: ./_posts/test1
+- title: test2
+  url: ./_posts/test2
+- title: test
+  url: ./_posts/test
+- title: test3
+  url: ./_posts/test3
