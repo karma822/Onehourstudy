@@ -6,8 +6,27 @@ layout: archive
 
 <h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
 
-{% for post in paginator.posts %}
-  {% include archive-single.html %}
+{% for tag in site.tags %}
+  {% assign t = tag | first %}
+  {% assign posts = tag | last %}
+  <div class="blog-list-container hidden" id="{{ t }}-container">
+    <ul class="blog-list">
+      {% for post in posts %}
+        {% if post.tags contains t %}
+
+          {% include archive-single.html %}
+
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+    {% assign numPosts = posts | size %}
+    {% if numPosts == 1 %}
+      <p>{{ posts | size }} post containing tag <b>{{ t }}</b></p>
+    {% else %}
+      <p>{{ posts | size }} posts containing tag <b>{{ t }}</b></p>
+    {% endif %}
+  </div>
 {% endfor %}
 
 {% include paginator.html %}

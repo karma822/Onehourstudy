@@ -40,6 +40,8 @@
 
 
 
+  <link rel="next" href="http://localhost:4000/page2/">
+
 
 
 
@@ -248,20 +250,32 @@
   </div>
 </div>
 
-  <ul>
+
+  <script src="filter.js"></script>
+  <ul class="blog-tags-list">
     
-      <li><a href=./_posts/operating_system_concept>operating_system_concept</a></li>
     
-      <li><a href=./_posts/test1>test1</a></li>
+      
+      
+      <li class="blog-tag-item" id="operating_system_concept-item">
+        <a href onclick="filter('operating_system_concept'); return false;">operating_system_concept</a>
+      </li>
     
-      <li><a href=./_posts/test2>test2</a></li>
+      
+      
+      <li class="blog-tag-item" id="test-item">
+        <a href onclick="filter('test'); return false;">test</a>
+      </li>
     
-      <li><a href=./_posts/test>test</a></li>
-    
-      <li><a href=./_posts/test3>test3</a></li>
+      
+      
+      <li class="blog-tag-item" id="test1-item">
+        <a href onclick="filter('test1'); return false;">test1</a>
+      </li>
     
   </ul>
-
+  
+  
   
   </div>
 
@@ -276,35 +290,13 @@
 
 
   
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="/Jekyll_test/" rel="permalink">Jekyll_test
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  less than 1 minute read
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">#Jekyll test
-post testing
-</p>
-  </article>
-</div>
-
-
   
+  <div class="blog-list-container hidden" id="operating_system_concept-container">
+    <ul class="blog-list">
+      
+        
+
+          
 
 
 
@@ -335,7 +327,11 @@ post testing
 </div>
 
 
-  
+        
+      
+        
+
+          
 
 
 
@@ -368,7 +364,11 @@ post testing
 </div>
 
 
-  
+        
+      
+        
+
+          
 
 
 
@@ -401,7 +401,147 @@ post testing
 </div>
 
 
+        
+      
+    </ul>
 
+    
+    
+      <p>3 posts containing tag <b>operating_system_concept</b></p>
+    
+  </div>
+
+  
+  
+  <div class="blog-list-container hidden" id="test-container">
+    <ul class="blog-list">
+      
+        
+
+          
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/20190123_test/" rel="permalink">20190123_test
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+  tag test
+
+</p>
+  </article>
+</div>
+
+
+        
+      
+    </ul>
+
+    
+    
+      <p>1 post containing tag <b>test</b></p>
+    
+  </div>
+
+  
+  
+  <div class="blog-list-container hidden" id="test1-container">
+    <ul class="blog-list">
+      
+        
+
+          
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/test1/" rel="permalink">Test1
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+  testing tag1
+
+</p>
+  </article>
+</div>
+
+
+        
+      
+    </ul>
+
+    
+    
+      <p>1 post containing tag <b>test1</b></p>
+    
+  </div>
+
+
+
+<nav class="pagination">
+  
+  <ul>
+    
+    
+    <li><a href="#" class="disabled"><span aria-hidden="true">Previous</span></a></li>
+    
+
+    
+    
+      <li><a href="#" class="disabled current">1</a></li>
+    
+
+    
+    
+
+    
+    
+    
+
+    
+
+    
+    
+
+    
+      <li><a href="/page2/">2</a></li>
+    
+
+    
+    
+      <li><a href="/page2/">Next</a></li>
+    
+  </ul>
+</nav>
 
 
 
