@@ -40,99 +40,153 @@
 	</header>
 	<main>
 	<article class="post ">
-		<header><h2><a href="/Onehourstudy/test2/" rel="bookmark">Test2</a></h2></header>
+		<header><h2><a href="/Onehourstudy/20181203_Concurrency/" rel="bookmark">20181203_concurrency</a></h2></header>
 		<div class="content">
 			
-				
+				<p><a href="http://tutorials.jenkov.com/java-concurrency/index.html">http://tutorials.jenkov.com/java-concurrency/index.html</a></p>
+<ol>
+  <li>Java의 concurrency는 multithreading + concurrency + parallelism (이 저자만 그런건가요?)</li>
+  <li>multithreading은 performance를 향상시키는 좋은 방법이긴한데, memory violation과 같은 문제들이 쉽게 발생함</li>
+  <li>shared-nothing platform이나 API들이 나오기 시작했는데, 그중 하나가 Akka</li>
+  <li>Multithreading 장점: Better resource utilization, simpler program design( sometimes ), more responsive program</li>
+  <li>단점: Shared data에 접근하는 경우 special attention이 필요. Error 나면 찾기도, 재현하기도, 고치기도 어려움, context switching overhead( 시간도 그렇고 메모리도 그렇고 생각보다 큼 )</li>
+  <li>컨커런시 모델( Parallel workers, assembly line, functional parallelism)
+    <ol>
+      <li>Parallel workers: delegator가 여러개의 worker를 두고 일을 나누어 주는 형태. 컨커런시 모델에서 가장 흔하게 쓰임.
+        <ol>
+          <li>장점은 이애하기 쉽고, parallelization을 향상시키기 쉬움( add more workers ).</li>
+          <li>단점1은 shared state를 사용해서 곤란해질 수 있음( 공유 데이터 쓰는 중에 읽는 거나, 같이 쓰거나 등등.. race condition, deadlock 발생 ) . 그렇다고 blocking 하면 퍼포먼스 향상의 장점이 없어질 수도 있음.
+            <ol>
+              <li>non-blocking concurrency algorithms가 있긴 한데 사용하기 어려움.</li>
+              <li>Persistent data structure를 사용해서도 해결 가능하긴 한데, 이것도 잘 동작을 안함( 모두 업데이트가 필요한 데이터의 경우 한군데서만 데이터가 업데이트 되는 현상을 만들어낼 수 있음 ). 게다가 list를 사용해서 구현되는데, 그러면 CPU접근 속도가 훅 떨어짐.</li>
+              <li>Stateless Workers (state를 내부에 저장 안하고 외부에 저장 )를 사용하는 방법도 있긴 한데 이럴경우 State 확인하는 시간이 많으면 불리하고 state를 외부 저장장치에 저장하는 순간 역시 시간이 매우 느려짐</li>
+              <li>단점 2는 Job Ordering 이 정해져있지 않다는 것. 이러면 어떤일이 먼저 시작/끝나고 늦게 시작/끝날지 예측 불가능 ). 그리고 worker별로 state 가 다를 수 있기 때문에 System의 State를 알수 없음</li>
+            </ol>
+          </li>
+        </ol>
+      </li>
+      <li>Assembly line: delegator - worker - worker - worker …의 구조로 대략 Ford assembly line 생각하면 되겠다. 주로 non-blocking I/O를 사용하도록 디자인됨. state 공유가 없음. I/O가 경계를 결정함.</li>
+    </ol>
+  </li>
+</ol>
+
+<p>오늘은 여기까지. 6번 들어오면서부터 모르는 거 같기도 하고 아는 것 같기도 하고.. 오늘 책이 없어서 이걸 보긴 했는데.. 도움이 되려나…?</p>
 
 			
 		</div>
 		<footer>
 			<div>
-				<a href="/Onehourstudy/test2/" rel="bookmark">
-					<time>2019-01-23</time>
+				<a href="/Onehourstudy/20181203_Concurrency/" rel="bookmark">
+					<time>2018-12-03</time>
 				</a>
 			</div>
 			<div>
 				
-				 Uncategorized 
+					<a rel="category tag" href="/Onehourstudy/category/operating-system-concept">
+						operating_system_concept</a>
+				
+				
 			</div>
 			<div></div>
 		</footer>
 	</article>
 
 	<article class="post ">
-		<header><h2><a href="/Onehourstudy/test1/" rel="bookmark">Test1</a></h2></header>
+		<header><h2><a href="/Onehourstudy/20181202_chapter1/" rel="bookmark">20181202_chapter1</a></h2></header>
 		<div class="content">
 			
 				<ol>
-  <li>testing tag1</li>
+  <li>distributed system - collection of physically separate, possibly heterogeneous, computer systems</li>
+  <li>client-server computing vs peer-to-peer computing</li>
+  <li>virtualization and emulation (아직 잘 이해 안됨;;)</li>
+  <li>cloud computing - Saas, Paas, Iaas는 동시에 제공될 수도 있음</li>
+  <li>real-time embedded system - 뭣보다도 real-time이 중요한 시스템. os는 있을 수도 없을 수도. 목적에 따라 시스템 구성이 천차만별</li>
 </ol>
 
 			
 		</div>
 		<footer>
 			<div>
-				<a href="/Onehourstudy/test1/" rel="bookmark">
-					<time>2019-01-23</time>
+				<a href="/Onehourstudy/20181202_chapter1/" rel="bookmark">
+					<time>2018-12-02</time>
 				</a>
 			</div>
 			<div>
 				
-				 Uncategorized 
+					<a rel="category tag" href="/Onehourstudy/category/operating-system-concept">
+						operating_system_concept</a>
+				
+				
 			</div>
-			<div>
-				<a rel="tag" href="/Onehourstudy/tag/test1">
-					test1</a>
-			</div>
+			<div></div>
 		</footer>
 	</article>
 
 	<article class="post ">
-		<header><h2><a href="/Onehourstudy/20190123_test/" rel="bookmark">20190123_test</a></h2></header>
+		<header><h2><a href="/Onehourstudy/20181130_chapter1/" rel="bookmark">20181130_chapter1</a></h2></header>
 		<div class="content">
 			
 				<ol>
-  <li>tag test</li>
+  <li>disk에 있는 데이터의 이동 순서는 disk -&gt; main memory -&gt; cache -&gt; internal register</li>
+  <li>그래서 register값이 변경된 경우 반대로 disk에 값이 써지기 전까지는 불일치가 존재</li>
+  <li>multiprocessin environment에서는 cache coherency로 까지 문제가 커질 수 있음. 이에대한 해결이 필요한데 대부분은 하드웨어가 해결함</li>
+  <li>파일, 메모리, CPU, resource들은 protection이 필요함 - 시스템이 알아서 정하고 정한대로 수행.</li>
+  <li>데이터 스트럭쳐 오버뷰 - list, stack, queue, tree, maps, bitmap</li>
+  <li>hash function</li>
+  <li>portal - 각 기억의 internal server에 웹 접근성을 제공하는 서비스.</li>
+  <li>전통적인 time-sharing system 은 이제 흔하지 않음. (user가 하나의 request만을 보내는 것이 아니라 여러개를 마구 날려버림. 예를 들면 웹 브라우저에서 멀티탭을 쓰는 거)</li>
+</ol>
+
+<p>portal의 어원이 궁금하긴 했었는데, 드디어 그걸 알게됨. 왠지 잘 맞는 말이다.</p>
+
+			
+		</div>
+		<footer>
+			<div>
+				<a href="/Onehourstudy/20181130_chapter1/" rel="bookmark">
+					<time>2018-11-30</time>
+				</a>
+			</div>
+			<div>
+				
+					<a rel="category tag" href="/Onehourstudy/category/operating-system-concept">
+						operating_system_concept</a>
+				
+				
+			</div>
+			<div></div>
+		</footer>
+	</article>
+
+	<article class="post ">
+		<header><h2><a href="/Onehourstudy/20181129_chapter1/" rel="bookmark">20181129_chapter1</a></h2></header>
+		<div class="content">
+			
+				<p>chapter 1 중간 쯤 옴… 그래도 열심히 해보자…</p>
+
+<ol>
+  <li>여전히 overview 중.. 일주일동안 챕터1 보게 생김..</li>
+  <li>kernel mode 와 user mode 에 대한 부분을 알게 됨</li>
+  <li>Timer</li>
+  <li>Process Management</li>
+  <li>Memory Management</li>
+  <li>Storage Management</li>
 </ol>
 
 			
 		</div>
 		<footer>
 			<div>
-				<a href="/Onehourstudy/20190123_test/" rel="bookmark">
-					<time>2019-01-23</time>
+				<a href="/Onehourstudy/20181129_chapter1/" rel="bookmark">
+					<time>2018-11-29</time>
 				</a>
 			</div>
 			<div>
 				
-				 Uncategorized 
-			</div>
-			<div>
-				<a rel="tag" href="/Onehourstudy/tag/test">
-					test</a>
-			</div>
-		</footer>
-	</article>
-
-	<article class="post ">
-		<header><h2><a href="/Onehourstudy/Jekyll_test/" rel="bookmark">Jekyll_test</a></h2></header>
-		<div class="content">
-			
-				<p>#Jekyll test
-post testing</p>
-
-			
-		</div>
-		<footer>
-			<div>
-				<a href="/Onehourstudy/Jekyll_test/" rel="bookmark">
-					<time>2019-01-04</time>
-				</a>
-			</div>
-			<div>
+					<a rel="category tag" href="/Onehourstudy/category/operating-system-concept">
+						operating_system_concept</a>
 				
-				 Uncategorized 
+				
 			</div>
 			<div></div>
 		</footer>
@@ -162,44 +216,12 @@ post testing</p>
 			</div>
 			<div>
 				
-				 Uncategorized 
-			</div>
-			<div>
-				<a rel="tag" href="/Onehourstudy/tag/operating-system-concept">
-					operating_system_concept</a>
-			</div>
-		</footer>
-	</article>
-
-	<article class="post ">
-		<header><h2><a href="/Onehourstudy/chapter1/" rel="bookmark">Chapter1</a></h2></header>
-		<div class="content">
-			
-				<ol>
-  <li>마소는 os가 너무 많은 역할을 한다고 고소당했고, 패소했다.</li>
-  <li>EEPROM은 롬 DRAM은 램</li>
-  <li>커널: 컴퓨터에서 항상 돌아가는 프로그램</li>
-  <li>펌웨어: ROM이나 EEPROM에 저장된 initial program</li>
-  <li>하나도 모르는데 OS책 펼치길 잘했다.</li>
-  <li>내일은 좀 일찍 시작해야지.</li>
-</ol>
-
-			
-		</div>
-		<footer>
-			<div>
-				<a href="/Onehourstudy/chapter1/" rel="bookmark">
-					<time>2018-11-27</time>
-				</a>
-			</div>
-			<div>
+					<a rel="category tag" href="/Onehourstudy/category/operating-system-concept">
+						operating_system_concept</a>
 				
-				 Uncategorized 
+				
 			</div>
-			<div>
-				<a rel="tag" href="/Onehourstudy/tag/operating-system-concept">
-					operating_system_concept</a>
-			</div>
+			<div></div>
 		</footer>
 	</article>
 
@@ -226,7 +248,10 @@ post testing</p>
 			</div>
 			<div>
 				
-				 Uncategorized 
+					<a rel="category tag" href="/Onehourstudy/category/operating-system-concept">
+						operating_system_concept</a>
+				
+				
 			</div>
 			<div></div>
 		</footer>
@@ -246,30 +271,26 @@ post testing</p>
 			<ul>
 				
 				
+					<li><a href="/Onehourstudy/category/operating-system-concept">operating_system_concept</a></li>
+				
 			</ul>
 		</section>
 		<section class="tagcloud">
 			<h2>Tags</h2>
 			
 			
-				<a href="/Onehourstudy/tag/operating-system-concept">operating_system_concept</a>
-			
-				<a href="/Onehourstudy/tag/test">test</a>
-			
-				<a href="/Onehourstudy/tag/test1">test1</a>
-			
 		</section>
 		<section>
 			<h2>Recent posts</h2>
 			<ul>
 				
-					<li><a href="/Onehourstudy/test2/">Test2</a></li>
+					<li><a href="/Onehourstudy/20181203_Concurrency/">20181203_concurrency</a></li>
 				
-					<li><a href="/Onehourstudy/test1/">Test1</a></li>
+					<li><a href="/Onehourstudy/20181202_chapter1/">20181202_chapter1</a></li>
 				
-					<li><a href="/Onehourstudy/20190123_test/">20190123_test</a></li>
+					<li><a href="/Onehourstudy/20181130_chapter1/">20181130_chapter1</a></li>
 				
-					<li><a href="/Onehourstudy/Jekyll_test/">Jekyll_test</a></li>
+					<li><a href="/Onehourstudy/20181129_chapter1/">20181129_chapter1</a></li>
 				
 					<li><a href="/Onehourstudy/20181128_chapter1/">20181128_chapter1</a></li>
 				
