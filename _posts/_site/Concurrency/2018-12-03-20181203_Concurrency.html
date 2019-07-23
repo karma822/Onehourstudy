@@ -1,0 +1,28 @@
+<p><a href="http://tutorials.jenkov.com/java-concurrency/index.html">http://tutorials.jenkov.com/java-concurrency/index.html</a></p>
+<ol>
+  <li>Java의 concurrency는 multithreading + concurrency + parallelism (이 저자만 그런건가요?)</li>
+  <li>multithreading은 performance를 향상시키는 좋은 방법이긴한데, memory violation과 같은 문제들이 쉽게 발생함</li>
+  <li>shared-nothing platform이나 API들이 나오기 시작했는데, 그중 하나가 Akka</li>
+  <li>Multithreading 장점: Better resource utilization, simpler program design( sometimes ), more responsive program</li>
+  <li>단점: Shared data에 접근하는 경우 special attention이 필요. Error 나면 찾기도, 재현하기도, 고치기도 어려움, context switching overhead( 시간도 그렇고 메모리도 그렇고 생각보다 큼 )</li>
+  <li>컨커런시 모델( Parallel workers, assembly line, functional parallelism)
+    <ol>
+      <li>Parallel workers: delegator가 여러개의 worker를 두고 일을 나누어 주는 형태. 컨커런시 모델에서 가장 흔하게 쓰임.
+        <ol>
+          <li>장점은 이애하기 쉽고, parallelization을 향상시키기 쉬움( add more workers ).</li>
+          <li>단점1은 shared state를 사용해서 곤란해질 수 있음( 공유 데이터 쓰는 중에 읽는 거나, 같이 쓰거나 등등.. race condition, deadlock 발생 ) . 그렇다고 blocking 하면 퍼포먼스 향상의 장점이 없어질 수도 있음.
+            <ol>
+              <li>non-blocking concurrency algorithms가 있긴 한데 사용하기 어려움.</li>
+              <li>Persistent data structure를 사용해서도 해결 가능하긴 한데, 이것도 잘 동작을 안함( 모두 업데이트가 필요한 데이터의 경우 한군데서만 데이터가 업데이트 되는 현상을 만들어낼 수 있음 ). 게다가 list를 사용해서 구현되는데, 그러면 CPU접근 속도가 훅 떨어짐.</li>
+              <li>Stateless Workers (state를 내부에 저장 안하고 외부에 저장 )를 사용하는 방법도 있긴 한데 이럴경우 State 확인하는 시간이 많으면 불리하고 state를 외부 저장장치에 저장하는 순간 역시 시간이 매우 느려짐</li>
+              <li>단점 2는 Job Ordering 이 정해져있지 않다는 것. 이러면 어떤일이 먼저 시작/끝나고 늦게 시작/끝날지 예측 불가능 ). 그리고 worker별로 state 가 다를 수 있기 때문에 System의 State를 알수 없음</li>
+            </ol>
+          </li>
+        </ol>
+      </li>
+      <li>Assembly line: delegator - worker - worker - worker …의 구조로 대략 Ford assembly line 생각하면 되겠다. 주로 non-blocking I/O를 사용하도록 디자인됨. state 공유가 없음. I/O가 경계를 결정함.</li>
+    </ol>
+  </li>
+</ol>
+
+<p>오늘은 여기까지. 6번 들어오면서부터 모르는 거 같기도 하고 아는 것 같기도 하고.. 오늘 책이 없어서 이걸 보긴 했는데.. 도움이 되려나…?</p>

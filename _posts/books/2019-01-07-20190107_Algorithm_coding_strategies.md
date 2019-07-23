@@ -1,6 +1,6 @@
 ---
 category: books
-tags: "알고리즘 해결 전략"
+tags: 알고리즘_해결_전략
 ---
 
 1. KMP가 날 잡는다....

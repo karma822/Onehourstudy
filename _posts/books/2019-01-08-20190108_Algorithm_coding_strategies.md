@@ -1,6 +1,6 @@
 ---
-categories: books, leetcode
-tags: "알고리즘 해결 전략"
+categories: books leetcode
+tags: 알고리즘_해결_전략
 ---
 
 1. KMP알고리즘은 대강 이해함.
