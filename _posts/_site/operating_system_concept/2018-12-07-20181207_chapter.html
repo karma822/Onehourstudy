@@ -1,0 +1,29 @@
+<ol>
+  <li>operating system design
+    <ol>
+      <li>policy와 mechanism은 분리되어야 함.</li>
+      <li>mechanism은 how to do something, policy는 what will be done</li>
+      <li>둘의 분리는 flexibility에 매우 중요함.</li>
+      <li>policy는 시간이 지나거나 다른 환경이 변함에 따라 변경되기 때문.</li>
+      <li>general mechanism은 insensitive to policy change 해야함.</li>
+      <li>microkernel-based operating system들은 이 논리에 맞게 잘 설계되어( basic set of primitive building blocks are almost policy free) policy를 잘 추가하여 더 진화 가능.</li>
+    </ol>
+  </li>
+  <li>operating system implementation
+    <ol>
+      <li>most os 는 C나 or even higher-level language로 작성되어 있음.</li>
+      <li>high level language로 작성하는 것의 장점은 written faster, more compact, easier to understand and debug.</li>
+      <li>또한 compiler가 진화하면 recompile만 하면 generated code 생성 가능.</li>
+      <li>단점은 speed가 느리고, more storage가 필요하다는 것.</li>
+      <li>근데 major performance improvements는 assembly보다는 better data structure와 algorithms에 주로 기인함.</li>
+      <li>주로 bottleneck은 interrupt handler, I/O manager, memory manager, CPU scheduler임.</li>
+    </ol>
+  </li>
+  <li>operating system structure
+    <ol>
+      <li>많은 os가 well-defined structure를 갖고 있지 않음.</li>
+      <li>작은 시스템-&gt; 수요-&gt; 확장의 형태로 커왔기 때문.</li>
+      <li>MS-DOS 랑 UNIX structure가 구림.</li>
+    </ol>
+  </li>
+</ol>
