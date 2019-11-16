@@ -19,6 +19,7 @@ category: Leetcode
 - word 만드는 부분에 좀 더 신경을 써 보면 좋을 듯.
 - trie를 썼는 데 구지 hashmap 까지 필요할까? 이부분에 있어서 더 좋은 접근을 생각해보면 좋을 듯.
 - trie에 child 노드를 그냥 최대 27개로 한정 지어두고 length를 따로 저장하고 있는 것도 속도 향상에는 좋을 듯.. (지금은 push_back이라 오래 걸리는 거 같음)
+
 ```
 class TrieNode {
 public:
