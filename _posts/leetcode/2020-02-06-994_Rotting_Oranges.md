@@ -26,64 +26,64 @@ category: Leetcode
 5. Result
   - 4ms. 95.63%, 9.1MB 87.5%
 
-<xmp>
-int neighbor[4][2] = {{0, -1}, {-1, 0}, {1, 0}, {0, 1}};
+```cpp
+  int neighbor[4][2] = {{0, -1}, {-1, 0}, {1, 0}, {0, 1}};
 
-class Solution {
-public:
-    int orangesRotting(vector<vector<int>>& grid) {
-        queue<pair<int,int>> q;
-        int w, h;
-        int i, j;
-        int count = 0;
-        
-        h = grid.size();
-        w = grid[0].size();
-        
-        int rotten = 0;
-        for( i = 0 ; i < h ; ++i ) {
-            for( j = 0 ; j < w; ++j ) {
-                if( grid[i][j] > 0 )
-                    count++;
-                if( grid[i][j] == 2 ) {
-                    q.push(pair<int,int>(i, j));
-                    rotten++;
-                }
-            }
-        }
-        
-        pair<int,int> pos;
-        int minutes = 0;
-        int new_rotten = 0;
-        int total = rotten;
-        int x, y;
-        
-        while(!q.empty()) {
-            pos = q.front();
-            q.pop();
-            for( i = 0 ; i < 4; ++i ) {
-                y = pos.first + neighbor[i][0];
-                x = pos.second + neighbor[i][1];
-                if( x < 0 || x >= w || y < 0 || y >= h || grid[y][x] != 1 )
-                    continue;
-                q.push(pair<int,int>( y, x ));
-                new_rotten++;
-                grid[y][x] = 2;
-            }
-            rotten--;
-            if( rotten < 1 ) {
-                if( new_rotten > 0 )
-                    minutes++;
-                rotten = new_rotten;
-                total += rotten;
-                new_rotten = 0;
-            }
-        }
-        
-        if( total < count )
-            return -1;
-        
-        return minutes;
-    }
-};
-</xmp>
+  class Solution {
+  public:
+      int orangesRotting(vector<vector<int>>& grid) {
+          queue<pair<int,int>> q;
+          int w, h;
+          int i, j;
+          int count = 0;
+
+          h = grid.size();
+          w = grid[0].size();
+
+          int rotten = 0;
+          for( i = 0 ; i < h ; ++i ) {
+              for( j = 0 ; j < w; ++j ) {
+                  if( grid[i][j] > 0 )
+                      count++;
+                  if( grid[i][j] == 2 ) {
+                      q.push(pair<int,int>(i, j));
+                      rotten++;
+                  }
+              }
+          }
+
+          pair<int,int> pos;
+          int minutes = 0;
+          int new_rotten = 0;
+          int total = rotten;
+          int x, y;
+
+          while(!q.empty()) {
+              pos = q.front();
+              q.pop();
+              for( i = 0 ; i < 4; ++i ) {
+                  y = pos.first + neighbor[i][0];
+                  x = pos.second + neighbor[i][1];
+                  if( x < 0 || x >= w || y < 0 || y >= h || grid[y][x] != 1 )
+                      continue;
+                  q.push(pair<int,int>( y, x ));
+                  new_rotten++;
+                  grid[y][x] = 2;
+              }
+              rotten--;
+              if( rotten < 1 ) {
+                  if( new_rotten > 0 )
+                      minutes++;
+                  rotten = new_rotten;
+                  total += rotten;
+                  new_rotten = 0;
+              }
+          }
+
+          if( total < count )
+              return -1;
+
+          return minutes;
+      }
+  };
+```
