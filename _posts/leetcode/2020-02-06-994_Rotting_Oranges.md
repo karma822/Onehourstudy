@@ -26,8 +26,7 @@ category: Leetcode
 5. Result
   - 4ms. 95.63%, 9.1MB 87.5%
 
-```cpp
-int neighbor[4][2] = {{0, -1}, {-1, 0}, {1, 0}, {0, 1}};
+<pre><code>int neighbor[4][2] = {{0, -1}, {-1, 0}, {1, 0}, {0, 1}};
 
 class Solution {
 public:
@@ -86,4 +85,4 @@ public:
         return minutes;
     }
 };
-```
+</code></pre>
