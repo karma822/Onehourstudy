@@ -2,7 +2,7 @@
 category: Leetcode
 ---
 
-https://leetcode.com/problems/rotting-oranges/
+[rotting-oranges](https://leetcode.com/problems/rotting-oranges/)
 
 1. Problem Analysis
   - When rotten orange spreads, find out minimum number of time to spoil all oranges
@@ -26,8 +26,7 @@ https://leetcode.com/problems/rotting-oranges/
 5. Result
   - 4ms. 95.63%, 9.1MB 87.5%
 
-```
-
+```cpp
 int neighbor[4][2] = {{0, -1}, {-1, 0}, {1, 0}, {0, 1}};
 
 class Solution {
