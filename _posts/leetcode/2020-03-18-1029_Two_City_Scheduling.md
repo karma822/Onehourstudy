@@ -2,7 +2,7 @@
 category: Leetcode
 ---
 
-[https://leetcode.com/problems/two-city-scheduling/]
+[two-city-scheduling](https://leetcode.com/problems/two-city-scheduling/)
 
 1. Problem Analysis
   - For 2N people devide them to two city to make total price minimum
