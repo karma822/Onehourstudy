@@ -14,7 +14,7 @@ category: Leetcode
 3. N.B
 
 4. Plan
-  - ~Tried to use KMP.~ Analyzed each string and find common. There were a lot of exceptions. 
+  - ~~Tried to use KMP.~~ Analyzed each string and find common. There were a lot of exceptions. 
   And most importantly, question asked about the gcd, so I didn't need to do that.
   - For the possible length of gcd, check the requirements ( see 1. Problem Analysis )
   - Because the question asked about gcd, trying from longest possible answer.
