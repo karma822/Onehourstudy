@@ -45,7 +45,7 @@ vector<vector<vector<int>>> dir = {% raw %}{{{0, 0}, {0, 1}, {0, 2}},
                                    {{0, 0}, {1, 1}, {2, 2}},
                                    {{0, 2}, {1, 1}, {2, 0}}}{% endraw %};
 
-map<int, string> num_map = {{1, "A"}, {2, "B"}, {4, "Pending"}};
+map<int, string> num_map = {% raw %}{{1, "A"}, {2, "B"}, {4, "Pending"}}{% endraw %};
 class Solution {
 private:
     vector<vector<int>>m;
