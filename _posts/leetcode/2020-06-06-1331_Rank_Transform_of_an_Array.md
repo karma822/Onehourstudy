@@ -20,7 +20,7 @@ category: Leetcode
   - replace the value
   
 5. Result
-  - 196ms. 91.63%, 38.1MB 46.27%
+  - 196ms. 91.63%, 38.1MB 46.27% panic. how can I optimize more?
 ```cpp
 class Solution {
 public:
